@@ -13,6 +13,14 @@ const TodoDetails = ({ todo }) => {
         dispatch({ type: 'TOGGLE_COMPLETE_TODO', payload: {id: todo.id, isTicked: e.target.checked}})
     }
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        if(!newTodoName.trim() === ""){
+            dispatch({ type: 'UPDATE_TODO', payload: {id: todo.id, name: newTodoName}})
+        }
+        setUpdateMode(false)
+    }
+
     return ( 
         <div className="flex md:flex-row items-start flex-col justify-between md:items-center my-4">
             <div className="flex items-center gap-x-1">
@@ -38,18 +46,16 @@ const TodoDetails = ({ todo }) => {
                 >Update</button>
             </div>
             {updateMode && (
-                <form onSubmit={e => {
-                    e.preventDefault();
-                    dispatch({ type: 'UPDATE_TODO', payload: {id: todo.id, name: newTodoName}})
-                    setUpdateMode(false)
-                }}>
+                <form onSubmit={handleSubmit}>
                     <input 
-                        className="px-2 py-1 border-b border-sky-500"
+                        className="px-2 py-1 border-b border-sky-500 outline-none"
                         type="text" 
                         onChange={e => setNewTodoName(e.target.value)}
                         value={newTodoName}
                     />
-                    <button>Save</button>
+                    <button 
+                        className="bg-green-600 text-gray-200 px-1 py-0.5"
+                    >Save</button>
                 </form>
             )}
             

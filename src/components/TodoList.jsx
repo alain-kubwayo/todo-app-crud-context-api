@@ -11,7 +11,7 @@ const TodoList = () => {
             </ul>
         </div>
     ) : (
-        <div>No tasks to work on for now... 🏆</div>
+        <div className="text-base text-gray-700/60 text-center my-8">No tasks to work on for now... 🏆</div>
     )
 }
  
