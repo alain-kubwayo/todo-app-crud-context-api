@@ -1,5 +1,4 @@
 import { createContext, useReducer } from 'react';
-import { nanoid } from 'nanoid';
 import { todoReducer } from '../reducers/todoReducer';
 
 export const TodoContext = createContext();

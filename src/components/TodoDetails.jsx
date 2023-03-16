@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { TodoContext } from "../contexts/TodoContext";
 
 const TodoDetails = ({ todo }) => {
@@ -14,7 +14,7 @@ const TodoDetails = ({ todo }) => {
     }
 
     return ( 
-        <div className="flex justify-between items-center">
+        <div className="flex md:flex-row items-start flex-col justify-between md:items-center my-4">
             <div className="flex items-center gap-x-1">
                 <input 
                     type="checkbox"
@@ -23,7 +23,7 @@ const TodoDetails = ({ todo }) => {
                 />
                 <h2 className={`${isChecked && 'line-through'}`}>{todo.name}</h2>
             </div>
-            <div className="flex gap-x-1">
+            <div className="flex self-left md:self-auto gap-x-1">
                 <button 
                     className="bg-red-400 text-gray-200 px-1 py-0.5"
                     onClick={() => {

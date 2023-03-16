@@ -12,13 +12,16 @@ const NewTodoForm = () => {
     }
 
     return ( 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="relative">
             <input 
+                className="w-full border-sky-600 border-b outline-none"
                 type="text" 
                 value={name}
                 onChange={e => setName(e.target.value)}
+                placeholder="Add a todo..."
+                required
             />
-            <button>+</button>
+            <button className="absolute text-xl top-1/4 right-2 rounded-full h-4 w-4 bg-sky-900 flex items-center justify-center text-white">+</button>
         </form>
     );
 }

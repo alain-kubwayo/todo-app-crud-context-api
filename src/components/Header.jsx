@@ -5,12 +5,12 @@ const Header = ({ title }) => {
     const { todos } = useContext(TodoContext);
 
     return ( 
-        <div>
-            <h1>{ title }</h1>
-            <p>You have {todos.length} {todos.length > 1 ? 'tasks' : 'task'} in total.</p>
+        <div className="mb-4">
+            <h1 className="text-gray-600/70 font-extrabold text-center text-3xl md:text-7xl">{ title }</h1>
+            <p className="text-gray-800 text-xl text-center">You have {todos.length} {todos.length > 1 ? 'tasks' : 'task'} in total.</p>
 
             { todos.length >= 1 && (
-                <p>Completed {todos.filter(todo => todo.completed === true).length} of {todos.length} {todos.length === 1 ? 'task' : 'tasks'}!
+                <p className="text-base text-gray-500 text-center">Completed {todos.filter(todo => todo.completed === true).length} of {todos.length} {todos.length === 1 ? 'task' : 'tasks'}!
                 </p> 
                 )
             }
