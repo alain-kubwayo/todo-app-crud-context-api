@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { TodoContext } from "../contexts/TodoContext";
 
 const TodoDetails = ({ todo }) => {
@@ -8,12 +8,17 @@ const TodoDetails = ({ todo }) => {
 
     const { dispatch } = useContext(TodoContext);
 
+    const handleChange = e => {
+        setIsChecked(e.target.checked);
+        dispatch({ type: 'TOGGLE_COMPLETE_TODO', payload: {id: todo.id, isTicked: e.target.checked}})
+    }
+
     return ( 
         <div className="flex justify-between items-center">
             <div className="flex items-center gap-x-1">
                 <input 
                     type="checkbox"
-                    onChange={() => setIsChecked(!isChecked)}
+                    onChange={handleChange}
                     value={isChecked}
                 />
                 <h2 className={`${isChecked && 'line-through'}`}>{todo.name}</h2>

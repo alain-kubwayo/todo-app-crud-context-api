@@ -18,6 +18,12 @@ export const todoReducer = (state, action) => {
                         name: action.payload.name,
                     }) : todo;
             })
+        case 'TOGGLE_COMPLETE_TODO':
+            return state.map(todo => {
+                return todo.id === action.payload.id ? (
+                    {...todo, completed: action.payload.isTicked}
+                ) : todo
+            })
         default: 
             return state
     }
