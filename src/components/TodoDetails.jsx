@@ -15,7 +15,7 @@ const TodoDetails = ({ todo }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(!newTodoName.trim() === ""){
+        if(!newTodoName.trim() == ""){
             dispatch({ type: 'UPDATE_TODO', payload: {id: todo.id, name: newTodoName}})
         }
         setUpdateMode(false)

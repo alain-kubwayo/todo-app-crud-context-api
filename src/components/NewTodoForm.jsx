@@ -7,7 +7,7 @@ const NewTodoForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(!name.trim() === ""){
+        if(!name.trim() == ""){
             dispatch({ type: 'ADD_TODO', payload: { name }});
         }
         setName('');
